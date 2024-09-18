@@ -1,0 +1,47 @@
+[project]
+name = "langgraph-db-agent"
+version = "0.1.0"
+description = "A proxy for database queries using LangGraph technology"
+readme = "README.md"
+authors = [
+    {name = "Jet Chen", email = "chenjet156@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Framework :: FastAPI",
+    "Programming Language :: Python :: 3.12",
+]
+
+requires-python = ">=3.9, <=3.12.3"
+
+dependencies = [
+    "fastapi <0.100.0",
+    "httpx~=0.26.0",
+    "pydantic ~=1.10.17",
+    "python-dotenv ~=1.0.1",
+    "setuptools ~=74.0.0",
+    "uvicorn ~=0.30.5",
+    "langchain-core==0.2.4",
+    "langgraph==0.0.64",
+    "langchain-community==0.2.3",
+    "langchain-openai==0.1.8",
+    "beautifulsoup4==4.12.3",
+    "termcolor==2.4.0",
+    "pymysql==1.1.1"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "pytest",
+    "pytest-env",
+    "ruff",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.pytest_env]
+OPENAI_API_KEY = "sk-fake-openai-key"

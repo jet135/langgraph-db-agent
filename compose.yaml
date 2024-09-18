@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.service
+    ports:
+      - "8809:8809"
+    env_file:
+      - .env

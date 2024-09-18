@@ -1,0 +1,20 @@
+FROM python:3.12.3-slim
+
+WORKDIR /app
+
+COPY pyproject.toml .
+RUN pip install --no-cache-dir uv
+RUN uv pip install --system --no-cache -r pyproject.toml
+
+COPY agent_graph/ ./agent_graph/
+COPY schema/ ./schema/
+COPY agents/ ./agents/
+COPY models/ ./models/
+COPY states/ ./states/
+COPY service/ ./service/
+COPY utils/ ./utils/
+COPY prompts/ ./prompts/
+
+COPY run_service.py .
+
+CMD ["python", "run_service.py"]
